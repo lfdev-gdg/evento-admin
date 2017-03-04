@@ -36,6 +36,18 @@ export class FirebaseService {
                         {answer: 'Nenhum das respostas anteriores', total: 0},
                     ]
                 },
+                {
+                    question: 'divulgacao',
+                    answers: [
+                        {answer: 'Facebook', total: 0},
+                        {answer: 'Twitter', total: 0},
+                        {answer: 'E-mail', total: 0},
+                        {answer: 'Vi na Faculdade', total: 0},
+                        {answer: 'Whatsapp/Telegram', total: 0},
+                        {answer: 'Amigos', total: 0},
+                        {answer: 'Outras formas', total: 0},
+                    ]
+                },
             ]
         };
 
