@@ -4,15 +4,21 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AuthGuard} from "./auth.guard";
 
+import { AngularFireModule } from 'angularfire2';
+import {firebaseConfig} from "./firebase.config";
+import {FirebaseService} from "./firebase.service";
+
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         HttpModule,
+        AngularFireModule.initializeApp(firebaseConfig)
     ],
     declarations: [],
     providers: [
-        AuthGuard
+        AuthGuard,
+        FirebaseService
     ]
 })
 export class SharedModule { }

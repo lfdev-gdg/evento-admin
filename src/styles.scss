@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'scss/imports';
+
+* {
+    font-family: "Raleway", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    //overflow-x: hidden;
+}
+
+.app-loading {
+    @extend %flex-center-center;
+    width: 100vw;
+    height: 100vh;
+
+    img {
+        max-width: 150px;
+        animation: animacao .7s infinite;
+    }
+}
+
+@keyframes animacao {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    99% {
+        transform: scale(1);
+    }
+}

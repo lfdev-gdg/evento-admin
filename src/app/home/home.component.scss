@@ -1,0 +1,29 @@
+@import "../../scss/imports";
+
+.home-component {
+    @extend %flex-center-center;
+
+    .inscritos {
+        margin: 1em;
+        width: 120px;
+        border: 1px solid #e9e9e9;
+        @include box-shadow(0, 2px, 3px, rgba(0,0,0,.3));
+        padding: .5em;
+
+        strong, span {
+            text-align: center;
+            line-height: 1em;
+            display: block;
+        }
+
+        strong {
+            font-size: 4em;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-size: .8em;
+            color: #666;
+        }
+    }
+}
