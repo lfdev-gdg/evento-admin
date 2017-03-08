@@ -7,6 +7,7 @@ import {AuthGuard} from "./auth.guard";
 import { AngularFireModule } from 'angularfire2';
 import {firebaseConfig} from "./firebase.config";
 import {FirebaseService} from "./firebase.service";
+import { TopoComponent } from './topo/topo.component';
 
 @NgModule({
     imports: [
@@ -15,10 +16,17 @@ import {FirebaseService} from "./firebase.service";
         HttpModule,
         AngularFireModule.initializeApp(firebaseConfig)
     ],
-    declarations: [],
+    declarations: [
+        TopoComponent
+    ],
     providers: [
         AuthGuard,
         FirebaseService
+    ],
+    exports: [
+        FormsModule,
+        HttpModule,
+        TopoComponent
     ]
 })
 export class SharedModule { }

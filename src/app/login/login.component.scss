@@ -1,0 +1,41 @@
+@import "../../scss/imports";
+
+.login-component {
+    @extend %flex-center-center;
+    width: 100%;
+    height: 100vh;
+
+    .form {
+        @include border-radius();
+        @extend %flex-center-center;
+        @include flex-dir(column);
+        padding: 1em;
+        border: 1px solid #999;
+        width: 90%;
+        max-width: 300px;
+
+        input, button, strong {
+            width: 100%;
+            box-sizing: border-box;
+            border: 0;
+            padding: .4em 0;
+            outline: none;
+        }
+
+        strong {
+            text-align: center;
+            font-size: 2em;
+            color: #999;
+        }
+
+        input {
+            margin-bottom: 1em;
+            border-bottom: 1px solid #999;
+        }
+
+        button {
+            @include border-radius(2px);
+            padding: .6em 0;
+        }
+    }
+}

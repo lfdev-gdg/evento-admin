@@ -1,0 +1,8 @@
+@import "../../../scss/imports";
+
+.topo-component {
+    @extend %flex-center-left;
+    height: 60px;
+    background-color: #ccc;
+    color: #fff;
+}
