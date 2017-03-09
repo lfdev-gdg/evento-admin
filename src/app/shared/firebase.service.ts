@@ -19,6 +19,10 @@ export class FirebaseService {
         });
     }
 
+    logout(): void {
+        this.fire.auth.logout();
+    }
+
     parseSurvey(list: Array<any>): any {
         let temp = {
             total: 0,

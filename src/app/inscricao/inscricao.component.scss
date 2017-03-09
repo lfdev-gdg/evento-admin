@@ -1,0 +1,20 @@
+@import "../../scss/imports";
+
+.inscricao-component {
+    .area {
+        width: 95%;
+        max-width: 960px;
+        margin: 1em auto;
+
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: .4em;
+        }
+
+        .table {
+            td {
+                vertical-align: middle;
+            }
+        }
+    }
+}

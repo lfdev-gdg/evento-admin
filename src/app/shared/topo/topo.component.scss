@@ -4,5 +4,39 @@
     @extend %flex-center-left;
     height: 60px;
     background-color: #ccc;
-    color: #fff;
+
+    .logo {
+        max-height: 40px;
+        margin-left: 1em;
+    }
+
+    h3 {
+        color: #666;
+        margin-left: .5em;
+    }
+
+    menu {
+        @include flex-grow(1);
+        padding: 0 1em;
+        text-align: right;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline-block;
+                padding: 0 .4em;
+
+                button {
+                    color: #666;
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
 }

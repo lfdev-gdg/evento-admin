@@ -1,5 +1,27 @@
 <div class="topo-component">
 
-    topo
+    <img src="/assets/img/lfdev-logo.png" alt="LFDev Logo" class="logo">
+
+    <h3>LFDev Admin</h3>
+
+    <menu>
+        <ul>
+            <li>
+                <button class="btn" [routerLink]="['/inscricao']">Inscrições</button>
+            </li>
+            <!--<li>
+                <button class="btn" [routerLink]="['/pesquisa']">Pesquisa</button>
+            </li>
+            <li>
+                <button class="btn" [routerLink]="['/sorteio']">Sorteios</button>
+            </li>
+            <li>
+                <button class="btn" [routerLink]="['/certificado']">Certificados</button>
+            </li>-->
+            <li>
+                <button class="btn" (click)="logout()">Sair</button>
+            </li>
+        </ul>
+    </menu>
 
 </div>

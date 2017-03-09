@@ -4,20 +4,27 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AuthGuard} from "./auth.guard";
 
-import { AngularFireModule } from 'angularfire2';
+import {AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from "./firebase.config";
 import {FirebaseService} from "./firebase.service";
-import { TopoComponent } from './topo/topo.component';
+import {TopoComponent} from './topo/topo.component';
+import {AlertModule, PopoverModule} from "ng2-bootstrap";
+import { LoaderComponent } from './loader/loader.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         HttpModule,
-        AngularFireModule.initializeApp(firebaseConfig)
+        RouterModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AlertModule.forRoot(),
+        PopoverModule.forRoot()
     ],
     declarations: [
-        TopoComponent
+        TopoComponent,
+        LoaderComponent
     ],
     providers: [
         AuthGuard,
@@ -26,7 +33,11 @@ import { TopoComponent } from './topo/topo.component';
     exports: [
         FormsModule,
         HttpModule,
-        TopoComponent
+        TopoComponent,
+        AlertModule,
+        PopoverModule,
+        LoaderComponent
     ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

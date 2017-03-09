@@ -1,0 +1,44 @@
+<app-topo></app-topo>
+<div class="inscricao-component">
+
+    <div class="area">
+
+        <h2>Inscrições ({{subscriptions.length}})</h2>
+
+        <app-loader *ngIf="showLoder"></app-loader>
+
+        <table class="table table-striped" *ngIf="!showLoder">
+            <thead>
+                <tr>
+                    <th>Hash</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sub of subscriptions; let idx = index">
+                    <td>{{sub.$key}}</td>
+                    <td>{{sub.name}}</td>
+                    <td>{{sub.email}}</td>
+                    <td>
+                        <!--<template #popTemplate>
+                            <button class="btn" title="Ver respostas do questionário"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button>
+                            <button class="btn" title="Cancelar inscrição"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button class="btn" title="Confirmar presença"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                        </template>
+                        <button type="button"
+                                class="btn"
+                                [popover]="popTemplate"
+                                popoverTitle="Ações"
+                                triggers="focus">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
