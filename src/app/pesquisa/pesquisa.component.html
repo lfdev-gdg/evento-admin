@@ -1,0 +1,74 @@
+<app-topo></app-topo>
+<div class="pesquisa-component">
+
+    <div class="area">
+
+        <h2>Pesquisa</h2>
+
+        <app-loader *ngIf="showLoder"></app-loader>
+
+        <div class="charts container-fluid" *ngIf="!showLoder">
+
+            <div class="row">
+
+                <div class="col-xs-4">
+                    <strong class="titulo">Sexo (%)</strong>
+                    <canvas baseChart
+                            [data]="sexoData"
+                            [labels]="sexoLabels"
+                            [chartType]="sexoType"
+                            [options]="pieOpt"></canvas>
+
+                </div>
+
+                <div class="col-xs-8">
+                    <strong class="titulo">Qual a Ocupação dos Participantes (%)</strong>
+                    <canvas baseChart
+                            [datasets]="ocupacaoData"
+                            [labels]="ocupacaoLabels"
+                            [options]="ocupacaoOptions"
+                            [legend]="ocupacaoLegend"
+                            [chartType]="ocupacaoType"></canvas>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-6">
+                    <strong class="titulo">Qual a Formação dos Participantes (%)</strong>
+                    <canvas baseChart
+                            [data]="formacaoData"
+                            [labels]="formacaoLabels"
+                            [chartType]="formacaoType"
+                            [options]="pieOpt"></canvas>
+                </div>
+
+                <div class="col-xs-6">
+                    <strong class="titulo">Como ficou Sabendo do evento (%)</strong>
+                    <canvas baseChart
+                            [data]="divulgacaoData"
+                            [labels]="divulgacaoLabels"
+                            [chartType]="divulgacaoType"
+                            [options]="pieOpt"></canvas>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong class="titulo">Tecnologias que Utiliza (%)</strong>
+                    <canvas baseChart
+                            [datasets]="tecnologiaData"
+                            [labels]="tecnologiaLabels"
+                            [options]="tecnologiaOptions"
+                            [legend]="tecnologiaLegend"
+                            [chartType]="tecnologiaType"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

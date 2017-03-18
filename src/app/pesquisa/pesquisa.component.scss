@@ -1,0 +1,30 @@
+@import "../../scss/imports";
+
+.pesquisa-component {
+    .area {
+        width: 95%;
+        max-width: 960px;
+        margin: 1em auto;
+
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: .4em;
+        }
+
+        strong.titulo {
+            display: block;
+            text: {
+                align: center;
+                transform: uppercase;
+            }
+            border-bottom: 1px solid #999;
+            margin: 3em 0 .5em;
+        }
+
+        .table {
+            td {
+                vertical-align: middle;
+            }
+        }
+    }
+}
