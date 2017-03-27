@@ -12,6 +12,14 @@ export class FirebaseService {
         return this.fire.database.list('/inscricoes');
     }
 
+    editInscricao(key: string, edit: any): any {
+        return this.fire.database.list('/inscricoes').update(key, edit);
+    }
+
+    deleteInscricao(subscription: any): any {
+        return this.fire.database.list('/inscricoes').remove(subscription);
+    }
+
     login(user: any): any {
         return this.fire.auth.login(user, {
             provider: AuthProviders.Password,
