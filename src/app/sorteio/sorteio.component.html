@@ -1,0 +1,56 @@
+<app-topo></app-topo>
+<div class="sorteio-component">
+
+    <div class="area">
+
+        <h2>Sorteios</h2>
+
+        <app-loader *ngIf="showLoader"></app-loader>
+
+        <div class="form-inline" *ngIf="!showLoader">
+            <div class="form-group">
+                <label for="brinde">Brinde</label>
+                <input type="text" class="form-control" id="brinde" placeholder="descreva o que vai sortear" [(ngModel)]="brinde">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="sortear()">Sortear!</button>
+        </div>
+
+        <div class="row" *ngIf="!showLoader">
+
+            <div class="col-xs-3">
+                <table class="table table-striped" *ngIf="!showLoder">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let pre of presentes;">
+                        <td>{{pre.name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-9">
+                <table class="table table-striped" *ngIf="!showLoder">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Brinde</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let sor of sorteados;">
+                        <td><strong>{{sor.name}}</strong> ({{sor.email}}) <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="remove(sor)"></span></td>
+                        <td>{{sor.brinde}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -7,6 +7,11 @@
 
         <app-loader *ngIf="showLoder"></app-loader>
 
+        <div class="filtro form-group" *ngIf="!showLoder">
+            <label for="buscar" class="sr-only">Buscar</label>
+            <input type="text" class="form-control" id="buscar" placeholder="buscar..." (keyup)="filtrar($event)" [(ngModel)]="filtro">
+        </div>
+
         <table class="table table-striped" *ngIf="!showLoder">
             <thead>
                 <tr>
@@ -18,14 +23,14 @@
             </thead>
             <tbody>
                 <tr *ngFor="let sub of subscriptions; let idx = index">
-                    <td>{{sub.$key}}</td>
+                    <td>{{sub.$key}} <span class="glyphicon glyphicon-ok" aria-hidden="true" *ngIf="sub.checkin"></span></td>
                     <td>{{sub.name}}</td>
                     <td>{{sub.email}}</td>
                     <td>
                         <!--<template #popTemplate>
                             <button class="btn" title="Ver respostas do questionário"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button>
-                            <button class="btn" title="Cancelar inscrição"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                            <button class="btn" title="Confirmar presença"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                            <button class="btn" title="Cancelar inscrição" (click)="delete(sub)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button class="btn" title="Confirmar presença" (click)="confirma(sub)"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                         </template>
                         <button type="button"
                                 class="btn"
@@ -34,6 +39,9 @@
                                 triggers="focus">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </button>-->
+                        <button class="btn" title="Cancelar inscrição" (click)="delete(sub)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <button class="btn" title="Confirmar presença" (click)="confirma(sub)" *ngIf="!sub.checkin"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                        <button class="btn" title="Desconfirmar presença" (click)="confirma(sub)" *ngIf="sub.checkin"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                     </td>
                 </tr>
             </tbody>

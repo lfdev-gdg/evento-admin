@@ -4,6 +4,7 @@ import {LoginModule} from "../login/login.module";
 import {HomeModule} from "../home/home.module";
 import {InscricaoModule} from "../inscricao/inscricao.module";
 import {PesquisaModule} from "../pesquisa/pesquisa.module";
+import {SorteioModule} from "../sorteio/sorteio.module";
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import {PesquisaModule} from "../pesquisa/pesquisa.module";
         LoginModule,
         HomeModule,
         InscricaoModule,
-        PesquisaModule
+        PesquisaModule,
+        SorteioModule
     ],
     declarations: []
 })

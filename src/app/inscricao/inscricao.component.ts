@@ -8,8 +8,10 @@ import {FirebaseService} from "../shared/firebase.service";
 })
 export class InscricaoComponent implements OnInit {
 
-    subscriptions: Array<any> = [];
+    private subscriptionsAll: Array<any> = [];
+    private subscriptions: Array<any> = [];
     showLoder: boolean = false;
+    filtro: string = '';
 
     constructor(private fire: FirebaseService) { }
 
@@ -22,9 +24,30 @@ export class InscricaoComponent implements OnInit {
         this.fire.getInscritos().subscribe(
             subs => {
                 this.showLoder = false;
+                this.subscriptionsAll = subs;
                 this.subscriptions = subs;
+
+                if (this.filtro)
+                    this.filtrar();
             }
         );
+    }
+
+    filtrar(e?: any): void {
+        this.subscriptions = this.subscriptionsAll.filter( t => t.name.toLowerCase().indexOf(this.filtro.toLowerCase()) > -1 );
+    }
+
+    delete(subscription: any): void {
+        if (confirm('Tem certeza que deseja cancelar esta inscrição?')) {
+            this.fire.deleteInscricao(subscription);
+        }
+    }
+
+    confirma(subscription: any): void {
+        let checkin = subscription.checkin ? {checkin: false} : {checkin: true};
+        this.fire.editInscricao(subscription.$key, checkin)
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
     }
 
 }
