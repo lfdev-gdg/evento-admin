@@ -12,6 +12,7 @@ export class InscricaoComponent implements OnInit {
     private subscriptions: Array<any> = [];
     showLoder: boolean = false;
     filtro: string = '';
+    csv: string = '';
 
     constructor(private fire: FirebaseService) { }
 
@@ -24,7 +25,7 @@ export class InscricaoComponent implements OnInit {
         this.fire.getInscritos().subscribe(
             subs => {
                 this.showLoder = false;
-                this.subscriptionsAll = subs;
+                this.subscriptionsAll = subs;this.csvExport();
                 this.subscriptions = subs;
 
                 if (this.filtro)
@@ -48,6 +49,13 @@ export class InscricaoComponent implements OnInit {
         this.fire.editInscricao(subscription.$key, checkin)
             .then(res => console.log(res))
             .catch(err => console.error(err));
+    }
+
+    private csvExport(){
+        this.csv = "Email Address\tFirst Name\tFIREID\n";
+        this.subscriptionsAll.forEach(i => {
+            this.csv += i.email+"\t"+i.name.split(' ')[0]+"\t"+i.$key+"\n";
+        });
     }
 
 }
